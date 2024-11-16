@@ -58,7 +58,7 @@ def setup_logging(log_level: LogLevel):
 
 app = typer.Typer(
     name=f'PyTestDornech {__version__}',
-    help='Dornech's testpackage',
+    help='Dornech''s testpackage',
 )
 
 
