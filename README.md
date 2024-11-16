@@ -5,7 +5,6 @@ Dornech's testpackage
 ## Features
 
 Testpaket ohne Features
-Und Doku geändert
 
 ## Development
 
