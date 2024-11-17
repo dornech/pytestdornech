@@ -187,9 +187,11 @@ ignore = [
 unfixable = [
     # "F401",  # Don't touch unused imports
 ]
+exclude = ["__init__.py"]
 
 [tool.ruff.format]
 quote-style = "single" # be more like black
+exclude = ["__init__.py", "_version.py"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["pytestdornech"]
