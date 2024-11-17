@@ -21,12 +21,7 @@ References:
 import enum
 import logging
 import sys
-
-# from typing import Annotated
-if sys.version_info >= (3, 9):
-    from typing import Annotated
-else:
-    from typing_extensions import Annotated
+from typing import Annotated
 
 import typer
 
