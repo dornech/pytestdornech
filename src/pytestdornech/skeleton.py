@@ -64,7 +64,7 @@ app = typer.Typer(
 
 @app.command()
 def main(
-    n: Annotated[int, typer.Argument(..., min=1, help='Positive integer')] = 1,
+    n: Annotated[int, typer.Argument(..., min=1, help='Positive integer')] = 7,
     log_level: Annotated[LogLevel, typer.Option(..., help='Log level')] = LogLevel.INFO,
 ):
     """Wrapper allowing :func:`fib` to be called with string arguments in a CLI fashion
