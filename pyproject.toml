@@ -92,6 +92,10 @@ addopts = "-ra -q --doctest-glob='*.md'"
 testpaths = [
     "tests",
 ]
+log_cli = true
+log_cli_level = "INFO"
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
 
 [tool.coverage.run]
 branch = true
@@ -307,4 +311,4 @@ all = [
 # Test matrix for various Python versions replacing the functionality of tox
 [[tool.hatch.envs.py-test.matrix]]
 template = ["test"]
-python = ["310", "311", "312"]
+python = ["39", "310", "311", "312"]
