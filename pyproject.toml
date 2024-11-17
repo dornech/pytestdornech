@@ -10,7 +10,7 @@ build-backend = "hatchling.build"
 name = "pytestdornech"
 description = "Dornech's testpackage"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 # only license identifier from https://spdx.org/licenses/ are allowed
 license = { text = "MIT"}
 # keywords for easier look-up on PyPI
@@ -22,7 +22,6 @@ authors = [
 classifiers = [ # ToDo: Modify according to your needs!
     "Development Status :: 2 - Pre-Alpha",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -128,7 +127,7 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-# target-version = "py38" # ToDo: Modify according to your needs!
+# target-version = "py39" # ToDo: Modify according to your needs!
 line-length = 120
 indent-width = 4
 include = [
@@ -218,7 +217,7 @@ ban-relative-imports = "all"
 
 # Default environment with production dependencies
 [tool.hatch.envs.default]
-python = "3.8"
+python = "3.9"
 post-install-commands = ["pre-commit install"]
 dependencies = []
 
@@ -226,7 +225,6 @@ dependencies = []
 [tool.hatch.envs.test]
 dependencies = [
     # required test dependencies
-    "coverage",
     "coverage[toml]>=6.2",
     "pytest",
     "pytest-cov",
