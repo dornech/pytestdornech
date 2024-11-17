@@ -226,6 +226,7 @@ dependencies = []
 [tool.hatch.envs.test]
 dependencies = [
     # required test dependencies
+    "coverage",
     "coverage[toml]>=6.2",
     "pytest",
     "pytest-cov",
