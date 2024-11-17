@@ -58,13 +58,13 @@ def setup_logging(log_level: LogLevel):
 
 app = typer.Typer(
     name=f'PyTestDornech {__version__}',
-    help='Dornech''s testpackage',
+    help='Dornechs testpackage',
 )
 
 
 @app.command()
 def main(
-    n: Annotated[int, typer.Argument(..., min=1, help='Positive integer')] = 1 ,
+    n: Annotated[int, typer.Argument(..., min=1, help='Positive integer')] = 1,
     log_level: Annotated[LogLevel, typer.Option(..., help='Log level')] = LogLevel.INFO,
 ):
     """Wrapper allowing :func:`fib` to be called with string arguments in a CLI fashion

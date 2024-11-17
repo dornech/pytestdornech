@@ -10,7 +10,8 @@ build-backend = "hatchling.build"
 name = "pytestdornech"
 description = "Dornech's testpackage"
 readme = "README.md"
-requires-python = ">=3.8"# only license identifier from https://spdx.org/licenses/ are allowed
+requires-python = ">=3.8"
+# only license identifier from https://spdx.org/licenses/ are allowed
 license = { text = "MIT"}
 # keywords for easier look-up on PyPI
 keywords = ["keyword_1", "keyword_2"] # ToDo: Modify according to your needs!
@@ -227,12 +228,6 @@ dependencies = [
     "pytest-vcr",
     "pytest-sugar",
     # additional test & development dependencies
-    # ToDo: Modify according to your needs!
-    "hypothesis",
-    "jupyterlab",
-    "ipython",
-    "seaborn",
-    "pandas",
 ]
 [tool.hatch.envs.test.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/pytestdornech --cov=tests {args}"
