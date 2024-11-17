@@ -22,6 +22,8 @@ authors = [
 classifiers = [ # ToDo: Modify according to your needs!
     "Development Status :: 2 - Pre-Alpha",
     "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -126,7 +128,7 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-target-version = "py38" # ToDo: Modify according to your needs!
+# target-version = "py38" # ToDo: Modify according to your needs!
 line-length = 120
 indent-width = 4
 include = [
