@@ -33,6 +33,11 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           verbose: true
+          env_vars: OS,PYTHON
+          directory: ./coverage/reports/
+          files: ./coverage1.xml,./coverage2.xml,!./cache
+          flags: unittests
+          name: codecov-umbrella
 
   release:
     runs-on: ubuntu-latest
