@@ -28,16 +28,11 @@ jobs:
       - name: Run Tests
         run: |
           hatch run test:pytest
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           verbose: true
-          env_vars: OS,PYTHON
-          directory: ./coverage/reports/
-          files: ./coverage1.xml,./coverage2.xml,!./cache
-          flags: unittests
-          name: codecov-umbrella
 
   release:
     runs-on: ubuntu-latest
