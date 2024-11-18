@@ -27,7 +27,7 @@ jobs:
           hatch run lint:all
       - name: Run Tests
         run: |
-          pytest --cov-report=term-missing --cov-config=pyproject.toml --cov
+          hatch test --cover
       - uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
