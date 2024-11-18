@@ -92,10 +92,6 @@ addopts = "-ra -q --doctest-glob='*.md'"
 testpaths = [
     "tests",
 ]
-log_cli = true
-log_cli_level = "INFO"
-log_format = "%(asctime)s %(levelname)s %(message)s"
-log_date_format = "%Y-%m-%d %H:%M:%S"
 
 [tool.coverage.run]
 branch = true
@@ -285,8 +281,8 @@ build-check = [
 [tool.hatch.envs.lint]
 template = "lint"  # don't inherit from default!
 dependencies = [
-    "mypy==1.11.1",
-    "ruff==0.5.7",
+    "mypy==1.13.0",
+    "ruff==0.7.4",
 ]
 [tool.hatch.envs.lint.scripts]
 typing = [
@@ -309,6 +305,6 @@ all = [
 ]
 
 # Test matrix for various Python versions replacing the functionality of tox
-[[tool.hatch.envs.py-test.matrix]]
+[[tool.hatch.envs.test.matrix]]
 template = ["test"]
-python = ["39", "310", "311", "312"]
+python = ["39", "310", "311", "312", "313"]
