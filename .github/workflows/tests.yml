@@ -38,7 +38,7 @@ jobs:
           hatch run lint:all
       - name: Run Tests
         run: |
-          hatch test
+          hatch test --cover
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
