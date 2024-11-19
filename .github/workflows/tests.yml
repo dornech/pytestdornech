@@ -43,6 +43,8 @@ jobs:
       - name: ls
         run: |
           ls
+          brew install tree
+          tree
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
