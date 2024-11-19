@@ -40,6 +40,10 @@ jobs:
         run: |
           hatch test --cover
 
+      - name: ls
+        run: |
+          ls
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
