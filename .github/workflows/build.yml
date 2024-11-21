@@ -33,8 +33,8 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           verbose: true
-      - run: echo github.ref
-      - run: echo github
+      - run: echo ${{ github.ref }}
+      - run: echo ${{ github }}
 
   build-release:
     runs-on: ubuntu-latest
