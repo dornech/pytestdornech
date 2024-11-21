@@ -22,7 +22,7 @@ defaults:
     shell: bash
 
 jobs:
-  build:
+  build-documentation:
 
     runs-on: ubuntu-latest
 
