@@ -19,15 +19,15 @@ jobs:
     steps:
       - name: Dump context "GitHub"
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump context "vars"
         env:
-          VARS_CONTEXT: ${{ toJson(vars) }
+          VARS_CONTEXT: ${{ toJson(vars) }}
         run: echo "$VARS_CONTEXT"
       - name: Dump context "Job"
         env:
-          JOB_CONTEXT: ${{ toJson(job) }
+          JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
 
   labeler:
@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: Dump context "Job"
         env:
-          JOB_CONTEXT: ${{ toJson(job) }
+          JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Check out the repository
         uses: actions/checkout@v4
