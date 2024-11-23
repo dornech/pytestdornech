@@ -37,7 +37,6 @@ class LogLevel(str, enum.Enum):
     INFO = 'info'
     DEBUG = 'debug'
 
-
 def fib(n: int) -> int:
     """Fibonacci example function"""
     if not n > 0:
@@ -47,7 +46,6 @@ def fib(n: int) -> int:
     for _ in range(n - 1):
         a, b = b, a + b
     return a
-
 
 def setup_logging(log_level: LogLevel):
     """Setup basic logging"""
@@ -60,7 +58,6 @@ app = typer.Typer(
     name=f'PyTestDornech {__version__}',
     help='Dornechs testpackage',
 )
-
 
 @app.command()
 def main(
