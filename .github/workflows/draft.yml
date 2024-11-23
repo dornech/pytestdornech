@@ -14,24 +14,12 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: Dump context "vars"
-        env:
-          VARS_CONTEXT: ${{ toJson(vars) }}
-        run: echo "$VARS_CONTEXT"
-      - name: Dump context "Job"
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
 
   update-draft:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Dump context "Job"
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
       # Drafts your next Release notes as Pull Requests are merged into "main"
       - uses: release-drafter/release-drafter@v6
         with:

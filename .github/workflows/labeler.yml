@@ -25,21 +25,12 @@ jobs:
         env:
           VARS_CONTEXT: ${{ toJson(vars) }}
         run: echo "$VARS_CONTEXT"
-      - name: Dump context "Job"
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
 
   labeler:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump context "Job"
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
       - name: Check out the repository
         uses: actions/checkout@v4
-
       - name: Run Labeler
         uses: crazy-max/ghaction-github-labeler@v5.0.0
         with:
