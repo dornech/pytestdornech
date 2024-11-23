@@ -3,15 +3,34 @@ name: Build
 on: [push, pull_request]
 
 jobs:
-  build-test:
 
+  dump-contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump context "GitHub"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump context "vars"
+        env:
+          VARS_CONTEXT: ${{ toJson(vars) }
+        run: echo "$VARS_CONTEXT"
+      - name: Dump context "Job"
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }
+        run: echo "$JOB_CONTEXT"
+
+  build-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
         python_version: ['3.9']
-
     steps:
+      - name: Dump context "Job"
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }
+        run: echo "$JOB_CONTEXT"
       - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,19 +52,20 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           verbose: true
-      - run: echo ${{ github.ref }}
-      - run: echo ${{ github }}
 
   build-release:
     runs-on: ubuntu-latest
     environment: release
     needs: build-test
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/heads/main')
     permissions:
       contents: write
       id-token: write
-
     steps:
+      - name: Dump context "Job"
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }
+        run: echo "$JOB_CONTEXT"
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python_version }}
         uses: actions/setup-python@v5
@@ -60,7 +80,6 @@ jobs:
         run: |
           hatch build
       - name: Publish 📦 to Test PyPI
-        if: startsWith(github.ref, 'refs/heads/main')
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           skip_existing: true
@@ -69,7 +88,6 @@ jobs:
           packages-dir: dist/
           repository-url: https://test.pypi.org/legacy/
       - name: Publish 📦 to PyPI
-        if: startsWith(github.ref, 'refs/heads/main')
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
