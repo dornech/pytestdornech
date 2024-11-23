@@ -13,7 +13,6 @@ def test_fib():
         fib(-10)
 
 
-
 def test_app(capsys):
     """CLI Tests"""
     # capsys is a pytest fixture that allows asserts against stdout/stderr
