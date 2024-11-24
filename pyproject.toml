@@ -12,7 +12,7 @@ description = "Dornech's testpackage"
 readme = "README.md"
 requires-python = ">=3.9"
 # only license identifier from https://spdx.org/licenses/ are allowed
-license = { text = "MIT"}
+license = { text = "MIT" }
 # keywords for easier look-up on PyPI
 keywords = ["keyword_1", "keyword_2"] # ToDo: Modify according to your needs!
 authors = [
@@ -30,12 +30,16 @@ classifiers = [ # ToDo: Modify according to your needs!
 ]
 # direct dependencies of this package, installed when users `pip install pytestdornech` later.
 dependencies = [ # ToDo: Modify according to your needs!
+    "setuptools_scm",
     "typer",
     # "numpy",
     # "matplotlib",
     # "seaborn",
 ]
 dynamic = ["version"]
+
+[project.optional-dependencies]
+# n. a.
 
 [project.scripts]
 # Use `fibonacci` as command-line script, comment or remove this section if not needed.
@@ -59,6 +63,7 @@ allow-direct-references = true
 
 [tool.hatch.version]
 source = "vcs"
+fallback-version = "0.0.1dev0"
 raw-options = { version_scheme = "no-guess-dev" }
 
 [tool.hatch.build.hooks.vcs]
