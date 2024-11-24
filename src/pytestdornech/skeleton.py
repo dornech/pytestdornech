@@ -79,5 +79,5 @@ def main(
 
 
 if __name__ == '__main__':
-    # print(f"My version is '{__version__}'.\n")
+    print(f"My version is '{__version__}'.\n")
     app()

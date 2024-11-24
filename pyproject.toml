@@ -63,7 +63,6 @@ allow-direct-references = true
 
 [tool.hatch.version]
 source = "vcs"
-fallback-version = "0.0.1dev0"
 raw-options = { version_scheme = "no-guess-dev" }
 
 [tool.hatch.build.hooks.vcs]
@@ -189,7 +188,8 @@ ignore = [
     "SIM114", # Combine `if` branches using logical `or` operator
     "E203", # Whitespace before :, needed for black compatability and also `ruff format`
     "ISC001", # causes unexpected behaviour with formatter
-    "I001" # enforce reorganisation of imports
+    "I001", # enforce reorganisation of imports
+    "T201"  # print statements
 ]
 unfixable = [
     # "F401",  # Don't touch unused imports
