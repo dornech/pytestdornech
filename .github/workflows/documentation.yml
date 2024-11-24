@@ -34,7 +34,8 @@ jobs:
   build-documentation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the repository
+        uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -44,7 +45,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install hatch pre-commit
           hatch env create docs
-      - name: Build
+      - name: Build documentation
         run: hatch run docs:build-check
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
