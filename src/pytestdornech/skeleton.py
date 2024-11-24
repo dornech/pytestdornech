@@ -74,7 +74,7 @@ def main(
     """
     setup_logging(log_level)
     _logger.debug('Starting crazy calculations...')
-    print(f'The {n}-th Fibonacci number is {fib(n)}')  # noqa: T201
+    print(f'The {n}-th Fibonacci number is {fib(n)}')
     _logger.info('Script ends here')
 
 
