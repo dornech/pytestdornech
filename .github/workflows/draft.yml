@@ -14,6 +14,10 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Dump context "Event"
+        env:
+          EVENT: ${{ toJson(event) }}
+        run: echo "$EVENT"
 
   update-draft:
     runs-on: ubuntu-latest
