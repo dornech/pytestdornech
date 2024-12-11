@@ -3,7 +3,7 @@
 Notion-API: https://developers.notion.com/reference/intro
 """
 
-# from importlib.metadata import PackageNotFoundError, version
+# import
 #
 # try:
 #     __version__ = version('pytestdornech')

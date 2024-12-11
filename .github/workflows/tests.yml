@@ -14,7 +14,7 @@ defaults:
 
 jobs:
 
-  dump-contexts:
+  dump-context:
     runs-on: ubuntu-latest
     steps:
       - name: Dump context "GitHub"

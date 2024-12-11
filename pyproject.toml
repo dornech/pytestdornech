@@ -48,7 +48,7 @@ fibonacci = "pytestdornech.skeleton:app"
 [project.urls]
 # important URLs for this project
 # ToDo: Modify according to your needs!
-Documentation = "https://github.com/dornech/pytestdornech"
+Documentation = "https://dornech.github.io/pytestdornech"
 Source = "https://github.com/dornech/pytestdornech"
 # Tracker = "https://github.com/dornech/pytestdornech/issues"
 # Sponsor = "https://github.com/sponsors/dornech"
