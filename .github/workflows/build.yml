@@ -94,7 +94,7 @@ jobs:
 
   publish-pypi:
     runs-on: ubuntu-latest
-    needs: [ build-distribution, build-publish-testpypi ]
+    needs: [ build-distribution, publish-testpypi ]
     environment:
       name: pypi
       url: https://pypi.org/project/p{{ github.event.repository.name }}
