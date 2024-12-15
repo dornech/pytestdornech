@@ -14,6 +14,9 @@
 - Correction build.yaml /3.
   ([`e9ba177`](https://github.com/dornech/pytestdornech/commit/e9ba17737d35ed2f255b20aeaa9a39e3dce02d54))
 
+- Correction build.yaml /4.
+  ([`d361091`](https://github.com/dornech/pytestdornech/commit/d361091a85abe7318fc9c196246441070b985991))
+
 
 ## v0.1.1 (2024-12-15)
 
