@@ -1,6 +1,16 @@
 # CHANGELOG
 
 
+## v0.1.1 (2024-12-15)
+
+### Bug Fixes
+
+- Correction skeleton.py, comment test code
+  ([`27413d1`](https://github.com/dornech/pytestdornech/commit/27413d184c61d237caaae1a27cda940d393d1f96))
+
+Signed-off-by: dornech <dornech@users.noreply.github.com>
+
+
 ## v0.1.0 (2024-12-15)
 
 ### Bug Fixes
