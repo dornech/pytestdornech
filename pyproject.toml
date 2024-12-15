@@ -291,6 +291,7 @@ ban-relative-imports = "all"
 python = "3.11"
 post-install-commands = ["pre-commit install"]
 dependencies = []
+installer = "pip"
 
 [tool.hatch.envs.hatch-test]
 dependencies = [
@@ -317,6 +318,7 @@ dependencies = [
     "pytest-sugar",
     # additional test & development dependencies
 ]
+installer = "pip"
 [tool.hatch.envs.test.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/pytestdornech --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
@@ -366,8 +368,9 @@ build-check = [
 template = "lint"  # don't inherit from default!
 dependencies = [
     "mypy==1.13.0",
-    "ruff==0.7.4",
+    "ruff==0.8.3",
 ]
+installer = "pip"
 [tool.hatch.envs.lint.scripts]
 typing = [
     "echo \"VERSION: `mypy --version`\"",

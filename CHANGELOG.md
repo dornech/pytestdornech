@@ -1,6 +1,20 @@
 # CHANGELOG
 
 
+## v0.1.2 (2024-12-15)
+
+### Bug Fixes
+
+- Correction build.yaml
+  ([`6d5b681`](https://github.com/dornech/pytestdornech/commit/6d5b6814c7b2ecd5952e44aa86d9e2ab3657efae))
+
+- Correction build.yaml /2.
+  ([`e545d3a`](https://github.com/dornech/pytestdornech/commit/e545d3a9070ace3425261c4fb7837335ad31a1bf))
+
+- Correction build.yaml /3.
+  ([`e9ba177`](https://github.com/dornech/pytestdornech/commit/e9ba17737d35ed2f255b20aeaa9a39e3dce02d54))
+
+
 ## v0.1.1 (2024-12-15)
 
 ### Bug Fixes
