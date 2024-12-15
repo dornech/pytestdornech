@@ -80,6 +80,7 @@ def main(
 
 if __name__ == '__main__':
 
+    print("Test code CliRunner - enable if required")
     # from semantic_release.cli.commands.main import main
     # from click.testing import CliRunner
     # cli_cmd = ["semantic-release", "-vv", "--noop", "version", "--print"]

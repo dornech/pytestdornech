@@ -255,7 +255,8 @@ ignore = [
     "E203", # Whitespace before :, needed for black compatability and also `ruff format`
     "ISC001", # causes unexpected behaviour with formatter
     "I001", # enforce reorganisation of imports
-    "T201"  # print statements
+    "T201",  # print statements
+    "Q000"   # double quotes found but single quotes preferred
 ]
 unfixable = [
     # "F401",  # Don't touch unused imports
@@ -304,12 +305,13 @@ dependencies = [
     "pytest-rerunfailures~=14.0",
     "pytest-xdist[psutil]~=3.5",
 ]
-installer = "pip"
+# installer = "pip"
 
 # Test environment with test-only dependencies
 [tool.hatch.envs.test]
 dependencies = [
     # required test dependencies
+    "pip",
     "coverage[toml]>=6.2",
     "pytest",
     "pytest-cov",
@@ -318,7 +320,7 @@ dependencies = [
     "pytest-sugar",
     # additional test & development dependencies
 ]
-installer = "pip"
+# installer = "pip"
 [tool.hatch.envs.test.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/pytestdornech --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
@@ -340,7 +342,7 @@ dependencies = [
     "mkdocs-redirects~=1.2",
     "mkdocs-glightbox~=0.4.0",
     "mike~=2.1",
-    # Extensions
+    # Extensionshatch
     "pymdown-extensions~=10.9",
     # Necessary for syntax highlighting in code blocks
     "pygments~=2.18",
@@ -367,6 +369,7 @@ build-check = [
 [tool.hatch.envs.lint]
 template = "lint"  # don't inherit from default!
 dependencies = [
+    "pip",
     "mypy==1.13.0",
     "ruff==0.8.3",
 ]
