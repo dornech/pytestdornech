@@ -45,10 +45,6 @@ output_pipeline:
       filename: '{{ changelog_filename }}'
       last_heading_pattern: (?im)^## \d+\.\d+(?:\.\d+)?\s+\([0-9]+-[0-9]{2}-[0-9]{2}\)$
 
-# Full or relative paths to look for output generation templates.
-template_dirs:
-  - .github/changelog_templates/
-
 # Group the commits within a version by these commit attributes.
 group_by:
   - metadata.category
@@ -71,11 +67,12 @@ ignore_patterns:
   - ^$
   - ^Merge branch
   - ^Merge pull
+  - ^[0-9]+\.[0-9]+(?:\.[0-9]+)?(?:\.)?   # release commit for semantic-release
 
 # Set the commit's category metadata to the first classifier that returns ``True``.
 commit_classifiers:
   - action: SummaryRegexMatch
-    category: New
+    category: New Features
     kwargs:
       pattern: (?i)^(?:new|add)[^\n]*$
   - action: SummaryRegexMatch
@@ -117,6 +114,9 @@ release_hint_rules:
     branch: master|main
   - match_result: minor
     grouping: New
+    branch: master|main
+  - match_result: minor
+    grouping: New Features
     branch: master|main
   - match_result: major
     grouping: Breaking Changes

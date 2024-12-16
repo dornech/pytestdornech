@@ -2,6 +2,7 @@
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
+
 ####################
 # Project Metadata #
 ####################
@@ -50,8 +51,9 @@ fibonacci = "pytestdornech.skeleton:app"
 # ToDo: Modify according to your needs!
 Documentation = "https://dornech.github.io/pytestdornech"
 Source = "https://github.com/dornech/pytestdornech"
-# Tracker = "https://github.com/dornech/pytestdornech/issues"
-# Sponsor = "https://github.com/sponsors/dornech"
+Tracker = "https://github.com/dornech/pytestdornech/issues"
+Sponsor = "https://github.com/sponsors/dornech"
+
 
 ######################
 # Build & Versioning #
@@ -72,9 +74,53 @@ version-file = "src/pytestdornech/_version.py"
 packages = ["src/pytestdornech"]
 
 [tool.hatch.build.targets.sdist]
+artifacts = ["_version.py"]
 exclude = [
     "/.github",
 ]
+
+[tool.bumpversion]
+current_version = "0.1.4"
+parse = """(?x)
+    (?P<major>0|[1-9]\\d*)\\.
+    (?P<minor>0|[1-9]\\d*)\\.
+    (?P<patch>0|[1-9]\\d*)
+    (?:
+        -                             # dash separator for pre-release section
+        (?P<pre_l>[a-zA-Z-]+)         # pre-release label
+        (?P<pre_n>0|[1-9]\\d*)        # pre-release version number
+    )?                                # pre-release section is optional
+"""
+serialize = [
+    "{major}.{minor}.{patch}-{pre_l}{pre_n}",
+    "{major}.{minor}.{patch}",
+]
+search = "{current_version}"
+replace = "{new_version}"
+ignore_missing_files = true
+ignore_missing_version = true
+commit = true
+commit_args = ""
+sign_tags = false
+tag = true
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+message = "Bump version: {current_version} → {new_version}"
+pre_commit_hooks= ["generate-changelog"]
+post_commit_hooks = ["hatch build"]
+
+[tool.bumpversion.parts.pre_l]
+values = ["dev", "rc", "final"]
+optional_value = "final"
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "Unreleased"
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "{current_version}...HEAD"
+replace = "{current_version}...{new_version}"
 
 [tool.semantic_release]
 assets = []
@@ -88,7 +134,7 @@ allow_zero_version = true
 no_git_verify = false
 tag_format = "v{version}"
 version_variable = []
-version_toml = []
+version_toml = ["pyproject.toml:tool.bumpversion:current_version"]
 version_pattern = []
 
 [tool.semantic_release.branches.main]
@@ -142,6 +188,7 @@ insecure = false
 dist_glob_patterns = ["dist/*"]
 upload_to_vcs_release = true
 
+
 ##################
 # External Tools #
 ##################
@@ -181,15 +228,12 @@ source = [
 exclude_lines = [
     # Have to re-enable the standard pragma
     "pragma: no cover",
-
     # Don't complain about missing debug-only code:
     "def __repr__",
     "if self\\.debug",
-
     # Don't complain if tests don't hit defensive assertion code:
     "raise AssertionError",
     "raise NotImplementedError",
-
     # Don't complain if non-runnable code isn't run:
     "if 0:",
     "if __name__ == .__main__.:",
@@ -292,7 +336,12 @@ ban-relative-imports = "all"
 python = "3.11"
 post-install-commands = ["pre-commit install"]
 dependencies = []
-installer = "pip"
+# installer = "pip"
+
+[tool.hatch.envs.hatch-uv]
+dependencies = [
+  "uv>=0.5.9",
+]
 
 [tool.hatch.envs.hatch-test]
 dependencies = [
@@ -305,7 +354,8 @@ dependencies = [
     "pytest-rerunfailures~=14.0",
     "pytest-xdist[psutil]~=3.5",
 ]
-# installer = "pip"
+
+[tool.hatch.envs.hatch-static-analysis]
 
 # Test environment with test-only dependencies
 [tool.hatch.envs.test]
@@ -320,7 +370,6 @@ dependencies = [
     "pytest-sugar",
     # additional test & development dependencies
 ]
-# installer = "pip"
 [tool.hatch.envs.test.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/pytestdornech --cov=tests {args}"
 no-cov = "cov --no-cov {args}"
@@ -348,7 +397,7 @@ dependencies = [
     "pygments~=2.18",
     # Validation
     "linkchecker~=10.4",
-    ]
+]
 [tool.hatch.envs.docs.env-vars]
 SOURCE_DATE_EPOCH = "1580601600"
 PYTHONUNBUFFERED = "1"
@@ -371,9 +420,8 @@ template = "lint"  # don't inherit from default!
 dependencies = [
     "pip",
     "mypy==1.13.0",
-    "ruff==0.8.3",
+    "ruff==0.8.3"
 ]
-installer = "pip"
 [tool.hatch.envs.lint.scripts]
 typing = [
     "echo \"VERSION: `mypy --version`\"",
