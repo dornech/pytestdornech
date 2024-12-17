@@ -1,7 +1,13 @@
 # Changelog
 
-## Unreleased (2024-12-15)
+## 0.1.5 (2024-12-17)
 
+### Other
+
+- - Feature: Einstellungen für generate-changelog und semantic-release /2.
+    
+- - Feature: Einstellungen für generate-changelog und semantic-release.
+    
 ## v0.1.4 (2024-12-15)
 
 ### Fixes
@@ -254,8 +260,6 @@
 - Korrekturen w ruff/Gtihub Actions.
     
 - Korrektur init.py.
-    
-- Merge remote-tracking branch 'origin/main'.
     
 - Bump crazy-max/ghaction-github-labeler from 5.0.0 to 5.1.0.
     
