@@ -54,11 +54,11 @@
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
-- Fix: Test Publishing - diverses u. a. vcs Änderungen.
+- Fix: Test Publishing - diverses u. a. vcs Ã„nderungen.
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
-- Fix: Test Publishing - diverses u. a. vcs Änderungen.
+- Fix: Test Publishing - diverses u. a. vcs Ã„nderungen.
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
@@ -80,7 +80,7 @@
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
-- Feat: Test Publishing - Korrektur & Überarbeitung Build- und andere Workflows.
+- Feat: Test Publishing - Korrektur & Ãœberarbeitung Build- und andere Workflows.
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
@@ -124,7 +124,7 @@
 
 ### Other
 
-- Test Publishing - diverses u. a. vcs Änderungen.
+- Test Publishing - diverses u. a. vcs Ã„nderungen.
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
@@ -132,7 +132,7 @@
 
 ### Other
 
-- Test Publishing - diverses u. a. vcs Änderungen.
+- Test Publishing - diverses u. a. vcs Ã„nderungen.
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
@@ -152,7 +152,7 @@
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
-- Test Publishing - Korrektur & Überarbeitung Build- und andere Workflows.
+- Test Publishing - Korrektur & Ãœberarbeitung Build- und andere Workflows.
     
   **signed-off-by:** dornech <dornech@users.noreply.github.com>
 
@@ -213,7 +213,7 @@
 - Weitere workflow Korrekturen.
     1. build w/coverage
   2. test
-- Ändern workflow build w/coverage.
+- Ã„ndern workflow build w/coverage.
     
 - Ausklammern nicht funktionierender Test.
     
@@ -245,7 +245,7 @@
 - Korrekturen w coverage.
     
 - Korrekturen.
-    a) skeleton w/verisonabhängigem Code (typing / typing_exetensions)
+    a) skeleton w/verisonabhÃ¤ngigem Code (typing / typing_exetensions)
   b) target-version pyproject.toml
 - Korrektur wegen Ignorieren nicht-optimierter import.
     

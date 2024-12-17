@@ -84,6 +84,11 @@ if __name__ == '__main__':
     # from click.testing import CliRunner
     # cli_cmd = ["semantic-release", "-vv", "--noop", "version", "--print"]
     # result = CliRunner().invoke(main, cli_cmd[1:])
+    # print('')
+    # from bumpversion.cli import cli
+    # from click.testing import CliRunner
+    # cli_cmd = ["bump-my-version", "bump", "patch", "--allow-dirty", "--dry-run", "-vvv", "--config-file", "F:\WinPython\WPy_Projekte\pytestdornech\pyproject.toml"]
+    # result = CliRunner().invoke(cli, cli_cmd[1:])
     print('')
 
     print(f"My version is '{__version__}'.\n")
