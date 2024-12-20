@@ -17,6 +17,7 @@ repos:
   - id: end-of-file-fixer
   - id: mixed-line-ending
     args: ['--fix=auto']  # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
+  - id: detect-private-key
 
 # Ruff replaces black, flake8, autoflake, isort and more
 - repo: https://github.com/charliermarsh/ruff-pre-commit
@@ -32,3 +33,9 @@ repos:
     - id: mypy
       args: ["--install-types", "--non-interactive"]
       additional_dependencies: [types-tabulate, types-cachetools]
+
+-   repo: https://github.com/jorisroovers/gitlint
+    rev:  'v0.19.1'
+    hooks:
+    -   id: gitlint    # this is the regular commit-msg hook
+    -   id: gitlint-ci # hook for CI environments

@@ -87,7 +87,8 @@ if __name__ == '__main__':
     # print('')
     # from bumpversion.cli import cli
     # from click.testing import CliRunner
-    # cli_cmd = ["bump-my-version", "bump", "patch", "--allow-dirty", "--dry-run", "-vvv", "--config-file", "F:\WinPython\WPy_Projekte\pytestdornech\pyproject.toml"]
+    # cli_cmd = ["bump-my-version", "bump", "patch", "--allow-dirty", "--dry-run", "-vvv", "--config-file",
+    #            "F:\WinPython\WPy_Projekte\pytestdornech\pyproject.toml"]
     # result = CliRunner().invoke(cli, cli_cmd[1:])
     print('')
 

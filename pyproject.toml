@@ -80,7 +80,7 @@ exclude = [
 ]
 
 [tool.bumpversion]
-current_version = "0.1.4"
+current_version = "0.1.5"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
@@ -315,18 +315,17 @@ ban-relative-imports = "all"
 # Environment Setup #
 #####################
 
-# Default environment with production dependencies
+# Hatch default environment with production dependencies
 [tool.hatch.envs.default]
 python = "3.11"
-post-install-commands = ["pre-commit install"]
-dependencies = []
+post-install-commands = ["pre-commit install", "pre-commit install --hook-type commit-msg"]
+dependencies = [
+    "pre-commit",
+    "gitlint"
+]
 # installer = "pip"
 
-[tool.hatch.envs.hatch-uv]
-dependencies = [
-  "uv>=0.5.9",
-]
-
+# Hatch default test environment for "hatch test" (also used in GitAction)
 [tool.hatch.envs.hatch-test]
 dependencies = [
     "pip",
@@ -339,14 +338,12 @@ dependencies = [
     "pytest-xdist[psutil]~=3.5",
 ]
 
-[tool.hatch.envs.hatch-static-analysis]
-
-# Test environment with test-only dependencies
+# Test environment with test-only dependencies (do not mix up with default hatch-test environment "hatch-test" !)
 [tool.hatch.envs.test]
 dependencies = [
     # required test dependencies
     "pip",
-    "coverage[toml]>=6.2",
+    "coverage[toml]>=7.4",
     "pytest",
     "pytest-cov",
     "pytest-mock",
@@ -359,46 +356,19 @@ cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/py
 no-cov = "cov --no-cov {args}"
 debug =  "cov --no-cov -s --pdb --pdbcls=IPython.core.debugger:Pdb {args}"
 
-# Docs environment
-[tool.hatch.envs.docs]
-dependencies = [
-    "mkdocs~=1.6",
-    "mkdocs-material[imaging]~=9.4",
-    # Plugins
-    "mkdocs-include-markdown-plugin",
-    "mkdocs-gen-files",
-    "mkdocs-literate-nav",
-    "mkdocs-minify-plugin~=0.8",
-    "mkdocs-section-index",
-    "mkdocs-git-revision-date-localized-plugin~=1.2",
-    "mkdocstrings[python]",
-    "mkdocs-redirects~=1.2",
-    "mkdocs-glightbox~=0.4.0",
-    "mike~=2.1",
-    # Extensionshatch
-    "pymdown-extensions~=10.9",
-    # Necessary for syntax highlighting in code blocks
-    "pygments~=2.18",
-    # Validation
-    "linkchecker~=10.4",
-]
-[tool.hatch.envs.docs.env-vars]
-SOURCE_DATE_EPOCH = "1580601600"
-PYTHONUNBUFFERED = "1"
-MKDOCS_CONFIG = "mkdocs.yml"
-[tool.hatch.envs.docs.scripts]
-build = "mkdocs build --config-file {env:MKDOCS_CONFIG} --clean --strict {args}"
-serve = "mkdocs serve --config-file {env:MKDOCS_CONFIG} --dev-addr localhost:8000 {args}"
-ci-build = "mike deploy --config-file {env:MKDOCS_CONFIG} --update-aliases {args}"
-# --ignore-url=None since the SUMMARY.md file leaves a <toc>None</toc> in sitemap.xml
-validate = "linkchecker --config .linkcheckerrc --ignore-url=/reference --ignore-url=None site"
-# https://github.com/linkchecker/linkchecker/issues/678
-build-check = [
-    "build",
-    "validate",
+# Hatch testing envrionment matrix for various Python versions replacing the functionality of tox
+[[tool.hatch.envs.test.matrix]]
+template = ["test"]
+python = ["39", "310", "311", "312", "313"]
+
+# Hatch default linting environment for "hatch fmt"
+[tool.hatch.envs.hatch-static-analysis]
+dependencies = [    "pip",
+    "mypy==1.13.0",
+    "ruff==0.8.3"
 ]
 
-# Lint environment
+# Hatch Linting environment for GitAction
 [tool.hatch.envs.lint]
 template = "lint"  # don't inherit from default!
 dependencies = [
@@ -426,7 +396,41 @@ all = [
     "typing",
 ]
 
-# Test matrix for various Python versions replacing the functionality of tox
-[[tool.hatch.envs.test.matrix]]
-template = ["test"]
-python = ["39", "310", "311", "312", "313"]
+# Hatch envrionment for bulding documentation
+[tool.hatch.envs.docs]
+dependencies = [
+    "mkdocs~=1.6",
+    "mkdocs-material[imaging]~=9.4",
+    # Plugins
+    "mkdocs-include-markdown-plugin",
+    "mkdocs-gen-files",
+    "mkdocs-literate-nav",
+    "mkdocs-minify-plugin~=0.8",
+    "mkdocs-section-index",
+    "mkdocs-git-revision-date-localized-plugin~=1.2",
+    "mkdocstrings[python]",
+    "mkdocs-redirects~=1.2",
+    "mkdocs-glightbox~=0.4.0",
+    "mike~=2.1",
+    # Extensions Hatch
+    "pymdown-extensions~=10.9",
+    # Necessary for syntax highlighting in code blocks
+    "pygments~=2.18",
+    # Validation
+    "linkchecker~=10.4",
+]
+[tool.hatch.envs.docs.env-vars]
+SOURCE_DATE_EPOCH = "1580601600"
+PYTHONUNBUFFERED = "1"
+MKDOCS_CONFIG = "mkdocs.yml"
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --config-file {env:MKDOCS_CONFIG} --clean --strict {args}"
+serve = "mkdocs serve --config-file {env:MKDOCS_CONFIG} --dev-addr localhost:8000 {args}"
+ci-build = "mike deploy --config-file {env:MKDOCS_CONFIG} --update-aliases {args}"
+# --ignore-url=None since the SUMMARY.md file leaves a <toc>None</toc> in sitemap.xml
+validate = "linkchecker --config .linkcheckerrc --ignore-url=/reference --ignore-url=None site"
+# https://github.com/linkchecker/linkchecker/issues/678
+build-check = [
+    "build",
+    "validate",
+]
