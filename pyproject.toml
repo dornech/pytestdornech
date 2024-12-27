@@ -32,7 +32,6 @@ classifiers = [ # ToDo: Modify according to your needs!
 ]
 # direct dependencies of this package, installed when users `pip install pytestdornech` later.
 dependencies = [ # ToDo: Modify according to your needs!
-    "setuptools_scm",
     "typer",
     # "numpy",
     # "matplotlib",
