@@ -27,6 +27,7 @@ classifiers = [ # ToDo: Modify according to your needs!
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: Implementation :: CPython",
 ]
 # direct dependencies of this package, installed when users `pip install pytestdornech` later.
@@ -65,13 +66,16 @@ allow-direct-references = true
 
 [tool.hatch.version]
 source = "vcs"
-raw-options = { version_scheme = "no-guess-dev" }
 
-[tool.hatch.build.hooks.vcs]
-version-file = "src/pytestdornech/_version.py"
+[tool.hatch.version.raw-options]
+version_scheme = "no-guess-dev"
+local_scheme = "dirty-tag"
 
 [tool.hatch.build]
 packages = ["src/pytestdornech"]
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/pytestdornech/_version.py"
 
 [tool.hatch.build.targets.sdist]
 artifacts = ["_version.py"]
@@ -225,7 +229,7 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-# target-version = "py39" # ToDo: Modify according to your needs!
+# ruff will use `requires-python` as `target-version` by default
 line-length = 120
 indent-width = 4
 include = [
@@ -310,6 +314,9 @@ ban-relative-imports = "all"
 # Tests can use magic values, assertions, and relative imports
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 
+[tool.cruft]
+skip = ["README.md", "CHANGELOG.MD", "src/", "tests/", "docs/", "notebooks/"]
+
 
 #####################
 # Environment Setup #
@@ -356,14 +363,15 @@ cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/py
 no-cov = "cov --no-cov {args}"
 debug =  "cov --no-cov -s --pdb --pdbcls=IPython.core.debugger:Pdb {args}"
 
-# Hatch testing envrionment matrix for various Python versions replacing the functionality of tox
+# Hatch testing environment matrix for various Python versions replacing the functionality of tox
 [[tool.hatch.envs.test.matrix]]
 template = ["test"]
 python = ["39", "310", "311", "312", "313"]
 
 # Hatch default linting environment for "hatch fmt"
 [tool.hatch.envs.hatch-static-analysis]
-dependencies = [    "pip",
+dependencies = [
+    "pip",
     "mypy==1.13.0",
     "ruff==0.8.3"
 ]
@@ -396,7 +404,7 @@ all = [
     "typing",
 ]
 
-# Hatch envrionment for bulding documentation
+# Hatch environment for building documentation
 [tool.hatch.envs.docs]
 dependencies = [
     "mkdocs~=1.6",

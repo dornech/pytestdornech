@@ -88,8 +88,15 @@ if __name__ == '__main__':
     # from bumpversion.cli import cli
     # from click.testing import CliRunner
     # cli_cmd = ["bump-my-version", "bump", "patch", "--allow-dirty", "--dry-run", "-vvv", "--config-file",
-    #            "F:\WinPython\WPy_Projekte\pytestdornech\pyproject.toml"]
+    #           "F:\WinPython\WPy_Projekte\pytestdornech\pyproject.toml"]
     # result = CliRunner().invoke(cli, cli_cmd[1:])
+    # print('')
+    from cruft._cli import app as cruftapp # noqa PLC2701
+    from typer.testing import CliRunner
+    import os
+    os.chdir(r"..\..")
+    cli_cmd = ["cruft", "diff"]
+    result = CliRunner().invoke(cruftapp, cli_cmd[1:])
     print('')
 
     print(f"My version is '{__version__}'.\n")

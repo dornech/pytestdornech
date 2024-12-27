@@ -26,8 +26,8 @@ try:
     # # editable mode or if Git is not installed.
     # __version__ = get_version(root="..\..", relative_to=__file__)
 
-    # own developed alternative overcoming problem of ignored setuptools_scm settings from hatch-based pyproject.toml
-    # libraries
+    # own developed alternative variant to hatch-vcs-fottgun overcoming problem of ignored setuptools_scm settings
+    # from hatch-based pyproject.toml libraries
     from hatch.cli import hatch
     from click.testing import CliRunner
     # determine version via hatch
