@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.1 (2025-05-28)
+
+### Bug Fixes
+
+- Reformat skeleton.py
+  ([`5f4510d`](https://github.com/dornech/pytestdornech/commit/5f4510d6aea2bb8d1a95974d2f1f7fdf8a29aed6))
+
+
 ## v0.2.0 (2025-05-28)
 
 ### Bug Fixes
