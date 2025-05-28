@@ -91,11 +91,12 @@ if __name__ == '__main__':
     #           "F:\WinPython\WPy_Projekte\pytestdornech\pyproject.toml"]
     # result = CliRunner().invoke(cli, cli_cmd[1:])
     # print('')
-    from cruft._cli import app as cruftapp # noqa PLC2701
+    from cruft._cli import app as cruftapp  # noqa PLC2701
     from typer.testing import CliRunner
     import os
-    os.chdir(r"..\..")
-    cli_cmd = ["cruft", "diff"]
+
+    os.chdir(r'..\..')
+    cli_cmd = ['cruft', 'diff']
     result = CliRunner().invoke(cruftapp, cli_cmd[1:])
     print('')
 
