@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## Unreleased
+
+### Bug Fixes
+
+- Create release for PSR test once more
+  ([`4d29629`](https://github.com/dornech/pytestdornech/commit/4d29629eed715cccb7d8f788031145fa5e21707f))
+
+- Create release for PSR test once more
+  ([`1c806ca`](https://github.com/dornech/pytestdornech/commit/1c806ca9cf5d4e5f571013dd6b90b50798e6319a))
+
+
 ## v0.2.3 (2025-05-29)
 
 ### Bug Fixes
