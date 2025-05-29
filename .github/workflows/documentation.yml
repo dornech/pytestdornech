@@ -1,9 +1,13 @@
 name: Build documentation
 
 on:
+  push:
+    tags:
+      # only release tags x.y.z (preceded by v)
+      - 'v?[0-9].[0-9]+.[0-9]+*'
   page_build:
     tags:
-      # only release tags x.y.z (preceeed by v)
+      # only release tags x.y.z (preceded by v)
       - 'v?[0-9].[0-9]+.[0-9]+*'
 
 
