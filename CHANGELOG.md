@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.5 (2025-05-29)
+
+### Bug Fixes
+
+- Dummy change
+  ([`8e3dc4f`](https://github.com/dornech/pytestdornech/commit/8e3dc4fe7ed9b271fc613494832a986735d72df9))
+
+
 ## v0.2.4 (2025-05-29)
 
 ### Bug Fixes
