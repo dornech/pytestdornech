@@ -1,6 +1,14 @@
 name: Build and Release Package
 
-on: [push, pull_request]
+on:
+  push:
+    tags:
+      # only release tags x.y.z (preceded by v)
+      - 'v?[0-9].[0-9]+.[0-9]+*'
+  pull_request:
+    tags:
+      # only release tags x.y.z (preceded by v)
+      - 'v?[0-9].[0-9]+.[0-9]+*'
 
 jobs:
 
