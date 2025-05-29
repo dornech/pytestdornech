@@ -102,3 +102,5 @@ if __name__ == '__main__':
 
     print(f"My version is '{__version__}'.\n")
     app()
+
+# dummy change
