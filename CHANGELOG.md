@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.0 (2025-05-29)
+
+### Features
+
+- Optimize GitHub actions - minimize triggering /3.
+  ([`408d966`](https://github.com/dornech/pytestdornech/commit/408d9664adbbb0b30cbbd84c6ae0de73b1cfb321))
+
+
 ## v0.3.0 (2025-05-29)
 
 ### Features
