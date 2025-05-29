@@ -4,12 +4,11 @@ on:
   push:
     tags:
       # only release tags x.y.z (preceded by v)
-      - 'v?[0-9].[0-9]+.[0-9]+*'
+      - 'v?[0-9]+.[0-9]+.[0-9]+*'
   page_build:
     tags:
       # only release tags x.y.z (preceded by v)
-      - 'v?[0-9].[0-9]+.[0-9]+*'
-
+      - 'v?[0-9]+.[0-9]+.[0-9]+*'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
