@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.2 (2025-05-29)
+
+### Bug Fixes
+
+- Set ignore token for PSR
+  ([`d3b8bf7`](https://github.com/dornech/pytestdornech/commit/d3b8bf7969a7f3c80117ac99e10143096867caac))
+
+
 ## v0.2.1 (2025-05-28)
 
 ### Bug Fixes
