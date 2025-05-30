@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.4.1 (2025-05-30)
+
+### Bug Fixes
+
+- Dummy change to validate GitHub action and PSR are itnervening
+  ([`5b3734c`](https://github.com/dornech/pytestdornech/commit/5b3734cbb31db9b57e20a960f0790040c2c855c3))
+
+- Optimize GitHub actions - minimize triggering /4.
+  ([`4285605`](https://github.com/dornech/pytestdornech/commit/42856059baa701f255dd0713b7826c16541acf4e))
+
+
 ## v0.4.0 (2025-05-29)
 
 ### Features
