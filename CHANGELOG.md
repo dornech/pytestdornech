@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.5.0 (2025-08-22)
+
+### Bug Fixes
+
+- Clean-up
+  ([`8861645`](https://github.com/dornech/pytestdornech/commit/88616451f99a95cb2e2c838c112158c6aa32e706))
+
+### Features
+
+- Include new version of hatch-vcs-footgun
+  ([`a54cef2`](https://github.com/dornech/pytestdornech/commit/a54cef2b04d883cea9246026bb3d4740b2ed0082))
+
+
 ## v0.4.1 (2025-05-30)
 
 ### Bug Fixes
