@@ -73,8 +73,8 @@ local_scheme = "dirty-tag"
 [tool.hatch.build]
 packages = ["src/pytestdornech"]
 
-[tool.hatch.build.hooks.vcs]
-version-file = "src/pytestdornech/_version.py"
+# [tool.hatch.build.hooks.vcs]
+# version-file = "src/pytestdornech/_version.py"
 
 [tool.hatch.build.targets.sdist]
 artifacts = ["_version.py"]
@@ -174,61 +174,12 @@ insecure = false
 
 [tool.semantic_release.publish]
 dist_glob_patterns = ["dist/*"]
-upload_to_vcs_release = true
+upload_to_vcs_release = false
 
 
 ##################
 # External Tools #
 ##################
-
-[tool.mypy]
-files = ["src/pytestdornech", "tests"]
-disallow_untyped_defs = false
-follow_imports = "normal" # "silent" for not following
-ignore_missing_imports = true
-pretty = true
-show_column_numbers = true
-warn_no_return = false
-warn_unused_ignores = true
-warn_return_any = true
-warn_unused_configs = true
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q --doctest-glob='*.md'"
-testpaths = [
-    "tests",
-]
-
-[tool.coverage.run]
-branch = true
-source = ["src/pytestdornech"]
-omit = [
-    "_version.py",  # automatically created by hatch-vcs, not in repo
-]
-
-[tool.coverage.paths]
-source = [
-    "src/",
-    "*/site-packages/",
-]
-
-[tool.coverage.report]
-# Regexes for lines to exclude from consideration
-exclude_lines = [
-    # Have to re-enable the standard pragma
-    "pragma: no cover",
-    # Don't complain about missing debug-only code:
-    "def __repr__",
-    "if self\\.debug",
-    # Don't complain if tests don't hit defensive assertion code:
-    "raise AssertionError",
-    "raise NotImplementedError",
-    # Don't complain if non-runnable code isn't run:
-    "if 0:",
-    "if __name__ == .__main__.:",
-    "if TYPE_CHECKING:",
-]
 
 [tool.ruff]
 # ruff will use `requires-python` as `target-version` by default
@@ -322,9 +273,58 @@ quote-style = "double"
 docstring-code-format = true
 exclude = ["__init__.py", "_version.py"]
 
+[tool.mypy]
+files = ["src/pytestdornech", "tests"]
+disallow_untyped_defs = false
+follow_imports = "normal" # "silent" for not following
+ignore_missing_imports = true
+pretty = true
+show_column_numbers = true
+warn_no_return = false
+warn_unused_ignores = true
+warn_return_any = true
+warn_unused_configs = true
+disable_error_code = "no-redef"
+
 [tool.cruft]
 skip = ["README.md", "CHANGELOG.MD", "src/", "tests/", "docs/", "notebooks/"]
 
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --doctest-glob='*.md'"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src/pytestdornech"]
+omit = [
+    "_version.py",  # automatically created by hatch-vcs, not in repo
+]
+
+[tool.coverage.paths]
+source = [
+    "src/",
+    "*/site-packages/",
+]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
 
 
 #####################
