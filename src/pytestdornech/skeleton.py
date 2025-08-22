@@ -18,6 +18,8 @@ References:
     - https://pip.pypa.io/en/stable/reference/pip_install
 """
 
+# fmt: off
+
 import enum
 import logging
 import sys
