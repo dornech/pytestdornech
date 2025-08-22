@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.5.1 (2025-08-22)
+
+### Bug Fixes
+
+- Formatting issue during GitHub export
+  ([`a7ed0d5`](https://github.com/dornech/pytestdornech/commit/a7ed0d50cca83d2f4a1bb005ceee966238ac8954))
+
+### Build System
+
+- **deps**: Bump actions/download-artifact from 4 to 5
+  ([`e5adeb7`](https://github.com/dornech/pytestdornech/commit/e5adeb7a12bc6ca18f550840a41f62f3226a4871))
+
+- **deps**: Bump sigstore/gh-action-sigstore-python from 3.0.0 to 3.0.1
+  ([`c365336`](https://github.com/dornech/pytestdornech/commit/c365336302c83e6cff08af0b17afa0e42045cf45))
+
+
 ## v0.5.0 (2025-08-22)
 
 ### Bug Fixes
