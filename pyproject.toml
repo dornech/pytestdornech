@@ -122,7 +122,7 @@ allow_zero_version = true
 no_git_verify = false
 tag_format = "v{version}"
 version_variable = []
-version_toml = ["pyproject.toml:tool.bumpversion.current_version"]
+version_toml = ["pyproject.toml:tool.bumpversion.current_version", "pyproject.toml:tool.commitizen.version"]
 version_pattern = []
 
 [tool.semantic_release.branches.main]
@@ -175,6 +175,51 @@ insecure = false
 [tool.semantic_release.publish]
 dist_glob_patterns = ["dist/*"]
 upload_to_vcs_release = false
+
+[tool.commitizen]
+name = "cz_customize"
+version_scheme = "pep440"
+version = "5.1.0"
+# version_files = ["pyproject.toml:version", "src/_version.py"]
+version_files = ["pyproject.toml:version", "pyproject.toml:tool.bumpversion.current_version"]
+tag_format = "$version"
+changelog_file = "CHANGELOG.md"
+update_changelog_on_bump = true
+
+[tool.commitizen.customize]
+message_template = "{% if scope %} '{{change_type}}({{scope}}): {{message}}' {% else %} '{{change_type}}: {{message}}'"
+example = "'feat: add new endpoint'or 'feat(api): add new endpoint'"
+schema = "'<type>: <subject>' or '<type>(<scope>): <subject>'"
+schema_pattern = "(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert)(\\([^)]+\\))?:\\s.*"
+bump_pattern = "^(feat|fix|BREAKING CHANGE)"
+bump_map = {"feat" = "MINOR", "fix" = "PATCH", "BREAKING CHANGE" = "MAJOR"}
+change_type_map = { feat = "Features", fix = "Bug fixes", test = "Testing", docs = "Documentation"}
+change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf", "docs", "style", "test", "chore", "build", "ci"]
+commit_parser = "^(?P<change_type>feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE)(\\((?P<scope>[^)]+)\\))?:\\s(?P<message>.*)"
+
+# user defined changelog format - standard MD + commit-sha and commit-url
+changelog_pattern = "^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE).*"
+changelog_format = """
+{% for entry in tree %}
+
+## {{ entry.version }}{% if entry.date %} ({{ entry.date }}){% endif %}
+
+{% for change_key, changes in entry.changes.items() %}
+
+{% if change_key %}
+### {{ change_key }}
+{% endif %}
+
+{% for change in changes %}
+{% if change.scope %}
+- **{{ change.scope }}**: {{ change.message }} ([{{ change.commit.commit_id | slice(start=0, end=7) }}]({{ change.commit.commit_url }}))
+{% elif change.message %}
+- {{ change.message }} ([{{ change.commit.commit_id | slice(start=0, end=7) }}]({{ change.commit.commit_url }}))
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+"""
 
 
 ##################
