@@ -1,6 +1,28 @@
 # CHANGELOG
 
 
+## 0.6.0 (2025-08-24)
+
+### Bug fixes
+
+- correct pre-commit-config configuration
+- change README
+
+### Features
+
+- add commitizen config
+
+## v0.6.0 (2025-08-24)
+
+### Bug fixes
+
+- correct pre-commit-config configuration
+- change README
+
+### Features
+
+- add commitizen config
+
 ## v0.5.1 (2025-08-22)
 
 ### Bug Fixes

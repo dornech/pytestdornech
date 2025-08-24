@@ -23,8 +23,8 @@ line-length=210
 ### Ignore rules to ignore automated commits by bump-my-version or semantic-release ###
 
 [ignore-by-title]
-# Match commit titles starting with "Release"
-regex=^(Bump version: )*[0-9]+\.[0-9]+(?:\.[0-9]+)?(?:\.)?
+# Match commit titles for commits created by semantic-release, commitizen ...
+regex=^([Bb]ump(?::){0,1}\s*[Vv]ersion*(?::){0,1}\s*)*[0-9]+\.[0-9]+(?:\.[0-9]+)?(?:\.)?
 ignore=all
 
 [ignore-by-author-name]

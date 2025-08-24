@@ -1,5 +1,5 @@
 # pre-commit defaults
-default_stages: [ pre-commit, pre-push ]   # define default explicitly to avoid double execution for commit-msg hook for gitlint
+default_stages: [ pre-commit, pre-merge-commit, pre-push, manual ]   # define default explicitly to avoid double execution for commit-msg hook for gitlint
 default_install_hook_types: [ pre-commit, commit-msg ]
 
 # pre-commit repos
