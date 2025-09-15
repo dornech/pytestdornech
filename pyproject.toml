@@ -183,43 +183,24 @@ version = "0.6.0"
 # version_files = ["pyproject.toml:version", "src/_version.py"]
 version_files = ["pyproject.toml:version", "pyproject.toml:tool.bumpversion.current_version"]
 tag_format = "v$version"
-changelog_file = "CHANGELOG.md"
 update_changelog_on_bump = true
+changelog_file = "CHANGELOG.md"
+template = "changelog_commitizen-template.md.j2"
 
 [tool.commitizen.customize]
 message_template = "{% if scope %} '{{change_type}}({{scope}}): {{message}}' {% else %} '{{change_type}}: {{message}}'"
 example = "'feat: add new endpoint'or 'feat(api): add new endpoint'"
 schema = "'<type>: <subject>' or '<type>(<scope>): <subject>'"
-schema_pattern = "(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert)(\\([^)]+\\))?:\\s.*"
+schema_pattern = "(feat|fix|docs|style|refactor|perf|test|chore|build|deps|ci|revert)(\\([^)]+\\))?:\\s.*"
 bump_pattern = "^(feat|fix|BREAKING CHANGE)"
 bump_map = {"feat" = "MINOR", "fix" = "PATCH", "BREAKING CHANGE" = "MAJOR"}
-change_type_map = { feat = "Features", fix = "Bug fixes", test = "Testing", docs = "Documentation"}
-change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf", "docs", "style", "test", "chore", "build", "ci"]
-commit_parser = "^(?P<change_type>feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE)(\\((?P<scope>[^)]+)\\))?:\\s(?P<message>.*)"
-
 # user defined changelog format - standard MD + commit-sha and commit-url
-changelog_pattern = "^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE).*"
-changelog_format = """
-{% for entry in tree %}
-
-## {{ entry.version }}{% if entry.date %} ({{ entry.date }}){% endif %}
-
-{% for change_key, changes in entry.changes.items() %}
-
-{% if change_key %}
-### {{ change_key }}
-{% endif %}
-
-{% for change in changes %}
-{% if change.scope %}
-- **{{ change.scope }}**: {{ change.message }} ([{{ change.commit.commit_id | slice(start=0, end=7) }}]({{ change.commit.commit_url }}))
-{% elif change.message %}
-- {{ change.message }} ([{{ change.commit.commit_id | slice(start=0, end=7) }}]({{ change.commit.commit_url }}))
-{% endif %}
-{% endfor %}
-{% endfor %}
-{% endfor %}
-"""
+# commit_parser = "^(?P<change_type>feat|fix|refactor|perf|docs|style|test|chore|build|ci|revert|BREAKING CHANGE)(\\((?P<scope>[^)]+)\\))?:\\s(?P<message>.*)"
+commit_parser ="^(?P<change_type>Initial [C,c]ommit|feat|fix|refactor|perf|docs|style|test|chore|build|ci|revert|BREAKING CHANGE)(\\((?P<scope>[^)]+)\\))?(:\\s(?P<message>.*))?"
+# changelog_pattern = "^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE).*"
+changelog_pattern = "^(Initial [C,c]ommit|feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE).*"
+change_type_map = { feat = "Features", fix = "Bug fixes", refactor = "Refactoring", perf = "performance improvements", docs = "Documentation", style = "Code style", test = "Testing", chore = "Chores", build = "Build system", ci = "Continuous Integration" }
+change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf", "docs", "style", "test", "chore", "build", "ci"]
 
 
 ##################
