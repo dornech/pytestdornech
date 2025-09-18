@@ -1,12 +1,28 @@
 # CHANGELOG
 
 
-## [Unreleased](https://github.com/dornech/pytestdornech/releases/tag/Unreleased)
+# CHANGELOG
+
+
+## [v0.6.1](https://github.com/dornech/pytestdornech/releases/tag/v0.6.1) (2025-09-18)
+
+### Bug fixes
+
+- Test for new version
+(['6a88138'](https://github.com/dornech/pytestdornech/commit/6a88138bdbd542aceb5fc7b60b548432f6be551a))
+
 
 ### Build system
 
+- **deps**: Bump actions/setup-python from 5 to 6
+ (['6bab678'](https://github.com/dornech/pytestdornech/commit/6bab678d0dff8a7245dd8f1d265c2688f862d099))
+
 - **deps**: Bump actions/upload-pages-artifact from 3 to 4
  (['8ff5aa9'](https://github.com/dornech/pytestdornech/commit/8ff5aa9431814201f75101a55f38ef993a4826ed))
+
+
+### Testing
+
 
 
 ## [v0.6.0](https://github.com/dornech/pytestdornech/releases/tag/v0.6.0) (2025-08-24)

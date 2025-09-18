@@ -83,7 +83,7 @@ exclude = [
 ]
 
 [tool.bumpversion]
-current_version = "0.6.0"
+current_version = "0.6.1"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
@@ -179,7 +179,7 @@ upload_to_vcs_release = false
 [tool.commitizen]
 name = "cz_customize"
 version_scheme = "pep440"
-version = "0.6.0"
+version = "0.6.1"
 # version_files = ["pyproject.toml:version", "src/_version.py"]
 version_files = ["pyproject.toml:version", "pyproject.toml:tool.bumpversion.current_version"]
 tag_format = "v$version"
@@ -191,7 +191,7 @@ template = "changelog_commitizen-template.md.j2"
 message_template = "{% if scope %} '{{change_type}}({{scope}}): {{message}}' {% else %} '{{change_type}}: {{message}}'"
 example = "'feat: add new endpoint'or 'feat(api): add new endpoint'"
 schema = "'<type>: <subject>' or '<type>(<scope>): <subject>'"
-schema_pattern = "(feat|fix|docs|style|refactor|perf|test|chore|build|deps|ci|revert)(\\([^)]+\\))?:\\s.*"
+schema_pattern = "(bump|feat|fix|docs|style|refactor|perf|test|chore|build|deps|ci|revert)(\\([^)]+\\))?:\\s.*"
 bump_pattern = "^(feat|fix|BREAKING CHANGE)"
 bump_map = {"feat" = "MINOR", "fix" = "PATCH", "BREAKING CHANGE" = "MAJOR"}
 # user defined changelog format - standard MD + commit-sha and commit-url
