@@ -4,6 +4,17 @@
 # CHANGELOG
 
 
+# CHANGELOG
+
+
+## [v0.6.2](https://github.com/dornech/pytestdornech/releases/tag/v0.6.2) (2025-09-18)
+
+### Bug fixes
+
+- Change hatch lint:all, dummy change readme.md
+(['89649fa'](https://github.com/dornech/pytestdornech/commit/89649fadbc4eecb7e2638459cb92e87016cc70e3))
+
+
 ## [v0.6.1](https://github.com/dornech/pytestdornech/releases/tag/v0.6.1) (2025-09-18)
 
 ### Bug fixes
