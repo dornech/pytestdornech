@@ -416,12 +416,12 @@ template = "lint"  # don't inherit from default!
 dependencies = [
     "pip",
     "mypy==1.16.0",
-    "ruff==0.11.12"
+    "ruff==0.11.12",
 ]
 [tool.hatch.envs.lint.scripts]
 typing = [
     "echo \"VERSION: `mypy --version`\"",
-    "mypy --install-types --non-interactive {args}"
+    "mypy --install-types --non-interactive {args}",
 ]
 style = [
     "echo \"VERSION: `ruff --version`\"",
