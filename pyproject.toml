@@ -201,7 +201,11 @@ commit_parser ="^(?P<change_type>Initial [C,c]ommit|feat|fix|refactor|perf|docs|
 changelog_pattern = "^(Initial [C,c]ommit|feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|BREAKING CHANGE).*"
 change_type_map = { feat = "Features", fix = "Bug fixes", refactor = "Refactoring", perf = "performance improvements", docs = "Documentation", style = "Code style", test = "Testing", chore = "Chores", build = "Build system", ci = "Continuous Integration" }
 change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf", "docs", "style", "test", "chore", "build", "ci"]
-post_bump_hooks = [ "push_tag.sh" ]
+post_bump_hooks = [
+    "echo '✅ Post bump hook executed!'",
+    "echo $CZ_POST_$CZ_POST_CURRENT_TAG_VERSION 'pushed to remote GitHub reporsitory'",
+    "push_tag.sh"
+]
 
 
 ##################
