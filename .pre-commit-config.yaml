@@ -10,6 +10,7 @@ repos:
     rev: v4.6.0
     hooks:
       - id: trailing-whitespace
+        exclude: CHANGELOG.md
       - id: check-added-large-files
       - id: check-merge-conflict
       - id: check-shebang-scripts-are-executable
