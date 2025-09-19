@@ -1,9 +1,6 @@
 # CHANGELOG
 
 
-# CHANGELOG
-
-
 
 ## [v0.6.3](https://github.com/dornech/pytestdornech/releases/tag/v0.6.3) (2025-09-20)
 
