@@ -187,9 +187,9 @@ update_changelog_on_bump = true
 changelog_file = "CHANGELOG.md"
 template = "changelog_commitizen-template.md.j2"
 post_bump_hooks = [
-    "echo",
-    "echo $CZ_POST_$CZ_POST_CURRENT_TAG_VERSION 'pushed to remote GitHub repository'",
-    "git push origin $CZ_POST_CURRENT_TAG_VERSION",
+    "echo off",
+    "echo \"v$version pushed to remote GitHub repository\"",
+    "git push origin v$version",
 ]
 
 [tool.commitizen.customize]
