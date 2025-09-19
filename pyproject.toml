@@ -83,7 +83,7 @@ exclude = [
 ]
 
 [tool.bumpversion]
-current_version = "0.6.2"
+current_version = "0.6.3"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
@@ -179,7 +179,7 @@ upload_to_vcs_release = false
 [tool.commitizen]
 name = "cz_customize"
 version_scheme = "pep440"
-version = "0.6.2"
+version = "0.6.3"
 # version_files = ["pyproject.toml:version", "src/_version.py"]
 version_files = ["pyproject.toml:version", "pyproject.toml:tool.bumpversion.current_version"]
 tag_format = "v$version"
@@ -187,9 +187,8 @@ update_changelog_on_bump = true
 changelog_file = "CHANGELOG.md"
 template = "changelog_commitizen-template.md.j2"
 post_bump_hooks = [
-    "echo off",
-    "echo \"v$version pushed to remote GitHub repository\"",
-    "git push origin v$version",
+    "echo %CZ_POST_CURRENT_TAG_VERSION% pushed to remote GitHub repository",
+    "git push origin %CZ_POST_CURRENT_TAG_VERSION%",
 ]
 
 [tool.commitizen.customize]
