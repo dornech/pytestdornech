@@ -183,6 +183,7 @@ version = "0.6.3"
 # version_files = ["pyproject.toml:version", "src/_version.py"]
 version_files = ["pyproject.toml:version", "pyproject.toml:tool.bumpversion.current_version"]
 tag_format = "v$version"
+retry_after_failure = true
 update_changelog_on_bump = true
 changelog_file = "CHANGELOG.md"
 template = "changelog_commitizen-template.md.j2"
