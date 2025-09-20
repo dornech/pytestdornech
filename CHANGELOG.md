@@ -2,6 +2,27 @@
 
 
 
+# CHANGELOG
+
+
+
+## [v0.6.4](https://github.com/dornech/pytestdornech/releases/tag/v0.6.4) (2025-09-20)
+
+### Bug fixes
+
+- Exclude CHANGELOG.md from trailing-whitespace check
+(['cafc9a2'](https://github.com/dornech/pytestdornech/commit/cafc9a2eaeac5e44f941a22e42ad1a022f2b7487))
+
+- Exclude CHANGELOG.md from trailing-whitespace check
+(['0330ef2'](https://github.com/dornech/pytestdornech/commit/0330ef2b306f6580c7c2b216256f2b562f66a2ba))
+
+- Fix issue with changelog template
+(['00c5d71'](https://github.com/dornech/pytestdornech/commit/00c5d71c18cf8c82c5ee334ae90a1e02f6f63ae0))
+
+- Correct commitizen post_bump_hook /5.
+(['4800ddb'](https://github.com/dornech/pytestdornech/commit/4800ddbc5575dc44c2986530edf8e8638711c5af))
+
+
 ## [v0.6.3](https://github.com/dornech/pytestdornech/releases/tag/v0.6.3) (2025-09-20)
 
 ### Bug fixes
